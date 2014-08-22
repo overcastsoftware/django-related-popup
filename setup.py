@@ -3,6 +3,8 @@ try:
 except ImportError: 
     from distutils.core import setup 
 
+from setuptools import find_packages
+
 setup(
     name='django-related-popup',
     version=__import__('related_popup').__version__,
@@ -13,7 +15,8 @@ setup(
     url='http://github.com/overcastsoftware/django-related-popup',
     download_url='http://github.com/overcastsoftware/django-related-popup',
     license='BSD',
-    packages=['related_popup'],
+    packages=find_packages(),
+    include_package_data=True,
     classifiers = [
             'Framework :: Django',
             'License :: OSI Approved :: BSD License',
