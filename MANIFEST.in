@@ -1,2 +1,3 @@
 include README.markdown
 recursive-include related_popup/templates *
+recursive-include related_popup/static *
