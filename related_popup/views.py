@@ -37,4 +37,4 @@ def add_new_model(request, model_name, form=None):
         form = form()
 
     page_context = {'form': form, 'field': normal_model_name, 'multipart': multipart}
-    return render_to_response('tekextensions/popup.html', page_context, context_instance=RequestContext(request))
+    return render_to_response('related_popup/popup.html', page_context, context_instance=RequestContext(request))
