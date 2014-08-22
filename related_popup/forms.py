@@ -1,3 +1,4 @@
+import re
 from django.forms.models import modelform_factory
 from django.db.models.loading import get_models, get_app, get_apps
 
@@ -26,7 +27,7 @@ def normalize_model_name(string, uppercase_first_letter=True):
     if uppercase_first_letter:
         return re.sub(r"(?:^|_)(.)", lambda m: m.group(1).upper(), string)
     else:
-        return string[0].lower() + camelize(string)[1:]
+        return string[0].lower() + normalize_model_name(string)[1:]
 
 
 def get_model_form(model_name):
