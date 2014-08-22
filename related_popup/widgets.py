@@ -10,13 +10,12 @@ class PopUpBaseWidget(object):
         super(PopUpBaseWidget, self).__init__(*args, **kwargs)
 
     def render(self, name, *args, **kwargs):
-        #import pdb; pdb.set_trace()
         html = super(PopUpBaseWidget, self).render(name, *args, **kwargs)
 
         if not self.model:
             self.model = name
 
-        popupplus = render_to_string(self.template, {'field': name, 'model': self.model.__name__})
+        popupplus = render_to_string(self.template, {'field': name, 'model': self.model})
         return html+popupplus
 
 class FilteredMultipleSelectWithPopUp(PopUpBaseWidget, FilteredSelectMultiple):
